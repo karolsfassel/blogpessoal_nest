@@ -7,7 +7,6 @@ import{Postagem} from '../entities/postagem.entity';
 export class PostagemController{
  constructor(private readonly postagemService: PostagemService){}
 
-
  @Get()
  @HttpCode(HttpStatus.OK)
  findAll(): Promise<Postagem[]>{
@@ -20,15 +19,11 @@ export class PostagemController{
         return this.postagemService.findById(id);
     }
 
-
-
     @Get('/titulo/:titulo')
     @HttpCode(HttpStatus.OK)
     findByAllTitulo(@Param('titulo')titulo:string): Promise<Postagem[]>{
       return this.postagemService.findAllByTitulo(titulo);
     }
-
-
 
     @Post()
     @HttpCode(HttpStatus.CREATED)
@@ -36,14 +31,11 @@ export class PostagemController{
       return this.postagemService.create(postagem);
     }
 
-
   @Delete('/:id')
   @HttpCode(HttpStatus.NO_CONTENT)
   Delete(@Param('id', ParseIntPipe)id: number){
     return this.postagemService.delete(id);
   }
-
-
     @Put()
     @HttpCode(HttpStatus.OK)
     update(@Body() postagem: Postagem): Promise <Postagem>{
