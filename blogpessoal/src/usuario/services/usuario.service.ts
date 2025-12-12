@@ -23,7 +23,6 @@ export class UsuarioService {
 
   async findAll(): Promise<Usuario[]> {
         return await this.usuarioRepository.find();
-
     }
 
     async findById(id: number): Promise<Usuario> {
